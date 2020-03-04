@@ -1,0 +1,162 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Login into EY",
+        "description": "",
+        "id": "login-module;login-into-ey",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 257663700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Browser is open",
+            "match": {
+              "location": "LoginSteps.main_page_is_loaded()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2771628300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login into EY mail",
+            "match": {
+              "location": "LoginSteps.i_login_into_the_webpage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 29896700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I am able to see the main page",
+            "match": {
+              "location": "LoginSteps.i_am_able_to_go_main_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 478462100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "exit the page",
+            "match": {
+              "location": "LoginSteps.i_am_able_exit_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@login"
+          }
+        ]
+      }
+    ],
+    "name": "Login Module",
+    "description": "Test Login module functionality",
+    "id": "login-module",
+    "keyword": "Feature",
+    "uri": "Login.feature"
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Logout from EY page",
+        "description": "",
+        "id": "logout-module;logout-from-ey-page",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 241000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Browser is open",
+            "match": {
+              "location": "LoginSteps.main_page_is_loaded()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7181502300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I login into EY mail",
+            "match": {
+              "location": "LoginSteps.i_login_into_the_webpage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 28963200,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I am able to see the main page",
+            "match": {
+              "location": "LoginSteps.i_am_able_to_go_main_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 277388900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Click on logout button",
+            "match": {
+              "location": "LoginSteps.i_am_able_logout_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 381072600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "exit the page",
+            "match": {
+              "location": "LoginSteps.i_am_able_exit_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@logout"
+          }
+        ]
+      }
+    ],
+    "name": "Logout Module",
+    "description": "Test Logout module functionality",
+    "id": "logout-module",
+    "keyword": "Feature",
+    "uri": "Logout.feature"
+  }
+]

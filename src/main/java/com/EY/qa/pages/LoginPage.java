@@ -5,11 +5,13 @@ import com.EY.qa.framework.SetupTestDriver;
 import com.EY.qa.framework.WebApp;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -65,7 +67,7 @@ public class LoginPage {
     @FindBy(name="username")
     WebElement username;
 
-    @FindBy(name="submit")
+    @FindBy(id="login")
     WebElement loginBtn;
 
     @FindBy(xpath = "/html/body/nav/div[2]/ul[2]/li/a")
@@ -118,19 +120,16 @@ public class LoginPage {
      */
     public void login() {
         Properties props = ReadProperties.getProperties();
-        String username = "ey";
-        String password = "dummy";
+        String username = "admin";
+        String password = "admin";
         login(username, password);
     }
 
     public boolean verifyMainPage() throws MalformedURLException {
-        boolean ret = true;
-        String pageSource = WebApp.getDriver().getPageSource();
-        ret = ret && pageSource.contains("Home");
-        ret = ret && pageSource.contains("Todos");
-        //ret = ret && pageSource.contains("Sent");
-        //ret = ret && pageSource.contains("Archive");
-        return ret;
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement elem = driver.findElement(By.id("loggedInBanner"));
+        wait.until(ExpectedConditions.visibilityOf(elem));
+        return true;
     }
 
     public void delete() {

@@ -1,8 +1,7 @@
 Feature: Login Module
   Test Login module functionality
 @login @cicd
-  Scenario: Login into EY
+  Scenario: Login into PetClinic with existing user
     Given Browser is open
-    When I login into EY mail
+    When I login into PetClinic
     Then I am able to see the main page
-#    Then exit the page

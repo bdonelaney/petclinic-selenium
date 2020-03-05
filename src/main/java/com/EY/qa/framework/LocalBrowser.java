@@ -1,6 +1,8 @@
 package com.EY.qa.framework;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -10,7 +12,7 @@ import java.util.Properties;
 /**
  * This class creates a static web browser instance that other classes/tests can use
  */
-public class Browser {
+public class LocalBrowser {
 
     private static String browser;
     private static WebDriver driver;
@@ -21,11 +23,16 @@ public class Browser {
         if (browser == "firefox") {
             driver = new FirefoxDriver();
         } else if (browser == "chrome") {
+            System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if (browser == "ie") {
             driver = new InternetExplorerDriver();
         } else {
-            driver = new FirefoxDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.setExperimentalOption("useAutomationExtension", false);
+            options.setPageLoadStrategy(PageLoadStrategy.NONE);
+            System.setProperty("webdriver.chrome.driver", "C:\\chromedriver80.exe");
+            driver = new ChromeDriver(options);
         }
         return driver;
     }

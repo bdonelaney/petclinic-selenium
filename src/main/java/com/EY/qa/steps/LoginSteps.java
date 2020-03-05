@@ -22,7 +22,6 @@ public class LoginSteps {
     private static WebDriver driver;
     private static WebApp webApp;
     private static LoginPage loginPage;
-    private static SetupTestDriver setupTestDriver;
 
 
     @Given("^Browser is open$")
@@ -33,9 +32,9 @@ public class LoginSteps {
        // driver= setupTestDriver.getDriver();
     }
 
-    @When("^I login into EY mail$")
+    @When("^I login into PetClinic$")
     public void i_login_into_the_webpage() throws Throwable {
-        log.info("When: I login into EY mail");
+        log.info("When: I login into PetClinic");
         loginPage = webApp.gotoLoginPage();
         loginPage.login();
     }

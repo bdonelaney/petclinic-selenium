@@ -20,7 +20,6 @@ public class ReadProperties {
         File file = new File("src/main/resources/config/config.properties");
 
         try {
-
             fileInput = new FileInputStream(file);
         } catch (IOException ioe) {
             System.out.println(ioe.toString());

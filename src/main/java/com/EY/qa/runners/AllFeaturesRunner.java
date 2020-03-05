@@ -33,26 +33,12 @@ import java.net.MalformedURLException;
 
 
 public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
-   WebDriver driver;
 
-//    @BeforeSuite(alwaysRun = true)
-//    public void setUp() throws MalformedURLException {
-//
-//        SetupTestDriver setupTestDriver = new SetupTestDriver();
-//        //WebApp.driver = setupTestDriver.getDriver();
-//
+    //@AfterMethod
+//    public void takeScreenshot(Method m, ITestContext ctx) throws IOException {
+//        long epochTime = new Date().getTime();
+//        FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + m.getName() + ".png"));
+//        System.out.println("wrote screenshot" + epochTime + ".png");
 //    }
-
-   // @After("@selenium")
-    //@After
-    @AfterMethod
-   // @AfterSuite(alwaysRun = true)
-    //@AfterMethod (alwaysRun = true)
-    public void takeScreenshot(Method m, ITestContext ctx) throws IOException {
-        long epochTime = new Date().getTime();
-        //scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
-        FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + m.getName() + ".png"));
-        System.out.println("wrote screenshot" + epochTime + ".png");
-    }
 
 }

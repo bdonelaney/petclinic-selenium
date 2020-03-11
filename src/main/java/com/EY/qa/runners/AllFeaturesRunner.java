@@ -34,11 +34,11 @@ import java.net.MalformedURLException;
 
 public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
 
-    //@AfterMethod
-//    public void takeScreenshot(Method m, ITestContext ctx) throws IOException {
-//        long epochTime = new Date().getTime();
-//        FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + m.getName() + ".png"));
-//        System.out.println("wrote screenshot" + epochTime + ".png");
-//    }
+    @AfterMethod
+    public void takeScreenshot(Method m, ITestContext ctx) throws IOException {
+        long epochTime = new Date().getTime();
+        FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + m.getName() + ".png"));
+        System.out.println("wrote screenshot" + epochTime + ".png");
+    }
 
 }

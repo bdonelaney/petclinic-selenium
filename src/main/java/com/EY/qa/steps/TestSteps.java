@@ -1,6 +1,5 @@
 package com.EY.qa.steps;
 
-import com.EY.qa.framework.SetupTestDriver;
 import com.EY.qa.framework.WebApp;
 import com.EY.qa.pages.LoginPage;
 import cucumber.api.PendingException;
@@ -14,11 +13,11 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by Aruna on 08/07/19.
  */
-public class LoginSteps {
+public class TestSteps {
     //Cucumber test step definitions for Login Module.
 
     //Logging object
-    private static final Logger log = LogManager.getLogger(LoginSteps.class);
+    private static final Logger log = LogManager.getLogger(TestSteps.class);
     private static WebDriver driver;
     private static WebApp webApp;
     private static LoginPage loginPage;
@@ -62,7 +61,7 @@ public class LoginSteps {
     public void i_am_able_ToDo_page() throws Throwable {
         log.info("Then: logout the page");
         //loginPage = webApp.gotoLoginPage();
-        loginPage.todo();
+
     }
 
     @Then("^Click on Add a Todo Link$")

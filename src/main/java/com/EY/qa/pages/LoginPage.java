@@ -30,7 +30,6 @@ public class LoginPage {
     private static Map<String, String> data;
     private static WebDriver driver;
     private static int timeout = 5;
-    private static final String pageLoadedText = "Login with Username and Password";
 
     /* Constructors */
     public LoginPage() {
@@ -51,77 +50,39 @@ public class LoginPage {
         this.timeout = timeout;
     }
 
-    public LoginPage verifyPageLoaded() {
-        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getPageSource().contains(pageLoadedText);
-            }
-        });
-        try {
-            Thread.sleep(1000);
-        } catch (Exception ex) {
-        }
-        return this;
-    }
-
-    @FindBy(name="username")
-    WebElement username;
-
-    @FindBy(id="login")
-    WebElement loginBtn;
-
-    @FindBy(xpath = "/html/body/nav/div[2]/ul[2]/li/a")
-    WebElement logoutBtn;
-
-    @FindBy(name="password")
-    WebElement password;
-    @FindBy(linkText="Click here")
-    WebElement clickHere;
-    @FindBy(className="btn btn-warning")
-    WebElement delete;
-
-    @FindBy(className="navbar-brand")
-    WebElement eyhome;
-
-    @FindBy(xpath = "/html/body/div/div/a")
-    WebElement addtodo;
 
     /**
      * Login with specified credentials.
      */
     public void login(String uname, String passwd) {
-        username.click();
-        username.sendKeys(uname);
-        //loginBtn.click();
-        //verifyPageLoaded();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement elem = driver.findElement(By.id("username"));
+        wait.until(ExpectedConditions.visibilityOf(elem));
+        elem.click();
+        elem.sendKeys(uname);
 
-        password.click();
-        password.sendKeys(passwd);
-        loginBtn.click();
-        //verifyPageLoaded();
+        elem = driver.findElement(By.id("password"));
+        wait.until(ExpectedConditions.visibilityOf(elem));
+        elem.click();
+        elem.sendKeys(passwd);
+
+        elem = driver.findElement(By.id("login"));
+        wait.until(ExpectedConditions.visibilityOf(elem));
+        elem.click();
     }
 
     public void logout() {
-        logoutBtn.click();
-        //verifyPageLoaded();
+
     }
 
-    public void todo() {
-        clickHere.click();
-        //verifyPageLoaded();
-    }
-//	@FindBy(css="")
-//	private WebElement webElement;
-//	@FindBy(css="")
-//	private WebElement webElement;
 
     /**
      * Login with configured credentials
      */
     public void login() {
         Properties props = ReadProperties.getProperties();
-        String username = "admin";
-        String password = "admin";
+        String username = props.get("username").toString();
+        String password = props.get("password").toString();
         login(username, password);
     }
 
@@ -132,15 +93,4 @@ public class LoginPage {
         return true;
     }
 
-    public void delete() {
-        delete.click();
-    }
-
-    public void eyhome() {
-        eyhome.click();
-    }
-
-    public void addtodo() {
-        addtodo.click();
-    }
 }
